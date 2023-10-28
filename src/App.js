@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
+import React, { useState } from 'react';
 import './App.css';
+import CookingConsultationForm from './components/register';
+import LoginForm from './components/login';
 
 function App() {
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const handleShowRegisterForm = () => {
+    setShowRegisterForm(true);
+    setShowLoginForm(false);
+  };
+
+  const handleShowLoginForm = () => {
+    setShowRegisterForm(false);
+    setShowLoginForm(true);
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body className='form-body'>
+      <h1>Cooking Consultation</h1>
+        <button className="button" onClick={handleShowLoginForm}>
+          Login
+        </button>
+        <button className="button1" onClick={handleShowRegisterForm}>
+          Register
+        </button>
+    
+        {showLoginForm && <LoginForm />}
+      {showRegisterForm && <CookingConsultationForm />}
+  </body>
+    
   );
 }
 
