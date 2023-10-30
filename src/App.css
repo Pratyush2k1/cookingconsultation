@@ -1,7 +1,7 @@
 
 body {
   font-family: Arial, sans-serif;
-    background-image: url('download.jpeg'); 
+    background-image: url('360_F_307352129_dvr99c36HQ8fOUDwhn4awr710K0JqBSJ.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     margin: 50px;
@@ -10,7 +10,8 @@ body {
 }
 
 h1 {
-  text-align: center;
+  /* text-align: center; */
+  margin-left: 360px;
   margin-bottom: 10px;
   background: -webkit-linear-gradient(#dc8214, #f2f2f3);
 -webkit-background-clip: text;

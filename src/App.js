@@ -20,7 +20,7 @@ function App() {
 
 
   return (
-    <body className='form-body'>
+    <div className='form-body'>
       <h1>Cooking Consultation</h1>
         <button className="button" onClick={handleShowLoginForm}>
           Login
@@ -31,7 +31,7 @@ function App() {
     
         {showLoginForm && <LoginForm />}
       {showRegisterForm && <CookingConsultationForm />}
-  </body>
+  </div>
     
   );
 }

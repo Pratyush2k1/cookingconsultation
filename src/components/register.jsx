@@ -5,6 +5,7 @@ import './registration.css';
 const CookingConsultationForm = () => {
   const [formData, setFormData] = useState({
     name: '',
+    dob:'',
     email: '',
     phoneNumber: '',
     cuisine: [],
@@ -35,6 +36,13 @@ const CookingConsultationForm = () => {
 
   const validateForm = () => {
     const validationErrors = {};
+
+    const today = new Date();
+    const birthDate = new Date(formData.dob);
+    const age = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24 * 365));
+    if( age < 18) {
+      validationErrors.dob = 'Age should be more than 18';
+    }
 
     if (!formData.name.trim()) {
       validationErrors.name = 'Name is required';
@@ -80,7 +88,7 @@ const CookingConsultationForm = () => {
 
     if (validateForm()) {
       console.log('Form data submitted:', formData);
-      alert("You have successfully Registered !!!");
+      if(!alert('You have successfully Registered !!!')){window.location.reload();}
     }
   };
 
@@ -104,6 +112,22 @@ const CookingConsultationForm = () => {
             required
           />
           {errors.name && <span className="error">{errors.name}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="date" className="form-label">
+            DOB:
+          </label>
+          <input 
+            type="date"
+            id="dob"
+            name="dob"
+            value={formData.dob}
+            placeholder='Enter Date of Birth'
+            onChange={handleChange} 
+            className="form-input"
+            required
+            />
+            {errors.dob && <span className="error">{errors.dob}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="email" className="form-label">
